@@ -38,6 +38,8 @@ dependencies:
     table_calendar: ^3.0.7
     intl: ^0.17.0
     simple_gesture_detector: ^0.2.0
+    syncfusion_flutter_gauges: ^20.3.50
+    fl_chart: ^0.55.2
 
 dev_dependencies:
     flutter_test:
