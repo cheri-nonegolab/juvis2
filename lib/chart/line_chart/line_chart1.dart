@@ -10,7 +10,7 @@ class LineChart1 extends StatefulWidget {
 }
 
 class _LineChart1State extends State<LineChart1> {
-  bool isShowingMainData = false; //boolean 값에 따라서, 그래프가 변경됩니다.
+  bool isShowingMainData = true; //boolean 값에 따라서, 그래프가 변경됩니다.
 
   @override
   Widget build(BuildContext context) {
@@ -226,7 +226,27 @@ class _LineChart1State extends State<LineChart1> {
         color: const Color(0xffaa4cfc),
         barWidth: 8,
         isStrokeCapRound: true,
-        dotData: FlDotData(show: true),
+        dotData: FlDotData(
+          show: true,
+          getDotPainter: (spot, percent, barData, index) {
+            //도트 커스텀
+            if (index.isEven) {
+              return FlDotCirclePainter(
+                radius: 8,
+                color: Colors.white,
+                strokeWidth: 5,
+                strokeColor: Colors.deepOrange,
+              );
+            } else {
+              return FlDotSquarePainter(
+                size: 16,
+                color: Colors.white,
+                strokeWidth: 5,
+                strokeColor: Colors.deepOrange,
+              );
+            }
+          },
+        ),
         belowBarData: BarAreaData(
           show: false,
           color: const Color(0x00aa4cfc),
